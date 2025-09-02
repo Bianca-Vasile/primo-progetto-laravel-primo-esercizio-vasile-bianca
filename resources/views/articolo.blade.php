@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -10,7 +9,7 @@
     <nav>
         <a href="{{ route('home') }}">Home</a> |
         <a href="{{ route('articoli') }}">Articoli</a> |
-        <a href="{{ route('chi-siamo') }}">Chi siamo</a> |
+        <a href="{{ route('chi') }}">Chi siamo</a> |
         <a href="{{ route('contatti') }}">Contatti</a>
     </nav>
 
