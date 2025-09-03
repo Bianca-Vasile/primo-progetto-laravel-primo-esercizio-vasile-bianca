@@ -2,46 +2,23 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\ContactController;
 
-// Homepage
-Route::get('/', function () {
-    $blogName = "Il mio blog di esempio";
-    return view('home', ['blogName' => $blogName]);
-})->name('home');
 
-// Articoli
-Route::get('/articoli', function () {
-    $articles = [
-        ['title' => 'Primo articolo', 'category' => 'Tecnologia', 'description' => 'Introduzione alla tecnologia'],
-        ['title' => 'Secondo articolo', 'category' => 'Viaggi', 'description' => 'La mia esperienza a Roma'],
-        ['title' => 'Terzo articolo', 'category' => 'Cibo', 'description' => 'Ricette della nonna']
-    ];
-    return view('articoli', ['articles' => $articles]);
-})->name('articoli');
+Route::get('/', [PageController::class, 'home'])->name('home');
 
-// Articolo singolo
-Route::get('/articolo/{id}', function ($id) {
-    $articles = [
-        ['title' => 'Primo articolo', 'category' => 'Tecnologia', 'description' => 'Introduzione alla tecnologia'],
-        ['title' => 'Secondo articolo', 'category' => 'Viaggi', 'description' => 'La mia esperienza a Roma'],
-        ['title' => 'Terzo articolo', 'category' => 'Cibo', 'description' => 'Ricette della nonna']
-    ];
 
-    if (!isset($articles[$id])) {
-        abort(404); // articolo non esiste
-    }
+Route::get('/articoli', [PageController::class, 'articoli'])->name('articoli');
 
-    $article = $articles[$id];
-    return view('articolo', ['article' => $article]);
-})->name('articolo');
 
-// Chi sono
-Route::get('/chi-sono', function () {
-    return view('chi');
-})->name('chi');
+Route::get('/articolo/{id}', [PageController::class, 'articolo'])->name('articolo');
 
-// Contatti
-Route::get('/contatti', function () {
-    return view('contatti');
-})->name('contatti');
 
+Route::get('/chi-siamo', [PageController::class, 'chiSiamo'])->name('chi-siamo');
+
+
+Route::get('/contatti', [PageController::class, 'contatti'])->name('contatti');
+
+
+Route::get('/contatti', [ContactController::class, 'index'])->name('contatti');
