@@ -1,26 +1,9 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <title>Lista Articoli</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="container mt-4">
+@extends('components.layout')
 
-    <x-navbar />
+@section('title', 'Articoli - Il Mio Blog Laravel')
 
-
-    <h1 class="mt-4">Lista degli articoli</h1>
-
-    <ul>
-        @foreach ($articles as $index => $article)
-    <x-card 
-        :route="route('articolo', ['id' => $index])" 
-        :title="$article['title']" 
-        :category="$article['category']" 
-    />
-       @endforeach
-
-    </ul>
-
-</body>
-</html>
+@section('content')
+    <h1>Articoli</h1>
+    <p>Qui ci saranno i tuoi articoli.</p>
+@endsection
+<button class="btn btn-primary">Aggiungi Articolo</button>

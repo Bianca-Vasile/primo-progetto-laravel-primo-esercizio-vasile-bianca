@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <title>Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="container mt-4">
+@extends('components.layout')
 
-    <x-navbar />
+@section('title', 'Home - Il Mio Blog Laravel')
 
+@section('content')
+    <h1 class="test-title">Il Mio Blog Laravel</h1>
 
-    <h1 class="mt-4">{{ $blogName }}</h1>
     <p>Benvenuti nel mio blog Laravel!</p>
+@endsection
+<h1 class="test-title">Il Mio Blog Laravel</h1>
+<p>Benvenuti nel mio blog Laravel!</p>
 
-</body>
-</html>
+<a href="{{ url('/articoli') }}" class="btn btn-primary mt-3">
+    Vai agli Articoli
+</a>

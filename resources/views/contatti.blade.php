@@ -1,22 +1,29 @@
+@extends('components.layout')
 
+@section('title', 'Contatti - Il Mio Blog Laravel')
 
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <title>Contatti</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="container mt-4">
-    <x-navbar />
-
+@section('content')
     <h1>Contatti</h1>
-    <p>Per contattarci, invia un'email a: <a href="mailto:info@ilmioblog.com">info@ilmioblog.com</a></p>
-    <p>Oppure chiamaci al numero: <strong>+123456789</strong></p>
-</body>
-</html>
+    <p>Contattaci tramite questo form.</p>
 
+    <form action="{{ route('contatti.invia') }}" method="POST" class="mt-4">
+        @csrf
 
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" id="nome" name="nome" class="form-control" required>
+        </div>
 
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+        </div>
 
+        <div class="mb-3">
+            <label for="messaggio" class="form-label">Messaggio</label>
+            <textarea id="messaggio" name="messaggio" class="form-control" rows="5" required></textarea>
+        </div>
 
-
+        <button type="submit" class="btn btn-primary">Invia</button>
+    </form>
+@endsection
