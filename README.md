@@ -60,3 +60,37 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 # primo-progetto-laravel-primo-esercizio-vasile-bianca
+---
+
+## 📚 Esercitazione 06 – Modellazione Database
+
+In questa esercitazione ho progettato tre schemi E-R (Entity-Relationship) per diversi progetti: **E-commerce**, **Social Network** e **Sito di Annunci**.
+
+### 1. E-commerce
+Un sito per una piccola libreria in cui gli utenti registrati possono acquistare libri.
+
+- **Utenti** → id, nome, cognome, data di nascita, email, domicilio (indirizzo + città), telefono  
+- **Libri** → id, titolo, autore, anno di pubblicazione, quantità in magazzino  
+- **Ordini** → id, user_id, book_id, data ordine, stato pagamento, città di spedizione, indirizzo di spedizione  
+
+### 2. Social Network
+Un social network semplice dove gli utenti possono pubblicare post e mettere like.
+
+- **Utenti** → id, username, email, foto profilo  
+- **Post** → id, contenuto, data pubblicazione, user_id  
+- **Like** → id, user_id, post_id, data like  
+
+### 3. Sito di Annunci
+Un sito di annunci dove gli utenti possono inserire prodotti da vendere. Alcuni utenti hanno ruolo di revisore.
+
+- **Utenti** → id, nome, cognome, data di nascita, email, ruolo  
+- **Annunci** → id, titolo, descrizione, user_id, categoria_id, data inserimento, accettato (si/no)  
+- **Categorie** → id, nome  
+
+---
+
+## 📊 Schema grafico
+
+Lo schema completo è stato disegnato con **dbdiagram.io**.
+
+![Schema Database](docs/schema_db.png)
