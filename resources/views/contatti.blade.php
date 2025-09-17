@@ -1,29 +1,41 @@
 @extends('components.layout')
 
-@section('title', 'Contatti - Il Mio Blog Laravel')
+@section('title', $titolo)
 
 @section('content')
-    <h1>Contatti</h1>
-    <p>Contattaci tramite questo form.</p>
 
-    <form action="{{ route('contatti.invia') }}" method="POST" class="mt-4">
+    <h1>{{ $titolo }}</h1>
+
+    @if(session()->has('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <form action="{{ route('contatti.submit') }}" method="POST">
         @csrf
 
         <div class="mb-3">
-            <label for="nome" class="form-label">Nome</label>
-            <input type="text" id="nome" name="nome" class="form-control" required>
-        </div>
-
-        <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" id="email" name="email" class="form-control" required>
+            <input type="email" name="email" class="form-control" value="{{ old('email') }}" required>
         </div>
 
         <div class="mb-3">
             <label for="messaggio" class="form-label">Messaggio</label>
-            <textarea id="messaggio" name="messaggio" class="form-control" rows="5" required></textarea>
+            <textarea name="messaggio" class="form-control" rows="4" required>{{ old('messaggio') }}</textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">Invia</button>
+        <button type="submit" class="btn btn-primary">Invia richiesta</button>
     </form>
+
 @endsection
