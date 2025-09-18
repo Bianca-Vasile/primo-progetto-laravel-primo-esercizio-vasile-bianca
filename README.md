@@ -94,3 +94,14 @@ Un sito di annunci dove gli utenti possono inserire prodotti da vendere. Alcuni 
 Lo schema completo è stato disegnato con **dbdiagram.io**.
 
 ![Schema Database](docs/schema_db.png)
+# Esercitazione 06 - Schemi Database
+
+In questa esercitazione sono stati progettati 3 diversi schemi di database, ognuno pensato per un caso d’uso specifico.
+
+---
+
+![ E-commerce](./docs/schema_ecommerce.png)
+
+![ Social Network](./docs/schema_social.png)
+
+![ Annunci](./docs/schema_annunci.png)
